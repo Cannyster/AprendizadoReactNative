@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   View,
   ScrollView,
+  FlatList,
 } from "react-native";
 import { styles } from "./styles";
 import { Participant } from "../../components/Participant";
@@ -22,6 +23,8 @@ export function Home() {
     "Fernado",
     "Marilia",
   ];
+
+  const participants2: ArrayLike<any> | null | undefined = [];
 
   function handleParticipantAdd() {
     console.log("Você clicou no botão adicionar");
@@ -50,15 +53,24 @@ export function Home() {
         </TouchableOpacity>
       </View>
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {participants.map((participant) => (
+      <FlatList
+        data={participants}
+        keyExtractor={(item) => item}
+        renderItem={({ item }) => (
           <Participant
-            key={participant}
-            name={participant}
-            onRemove={() => handleParticipantRemove(participant)}
+            name={item}
+            onRemove={() => handleParticipantRemove(item)}
           />
-        ))}
-      </ScrollView>
+        )}
+        showsVerticalScrollIndicator={false}
+        ListEmptyComponent={() => (
+          <Text style={styles.listEmptyText}>
+            {" "}
+            Ninguém chegou no evento ainda ? Adicione particpantes a sua lista
+            de presença.
+          </Text>
+        )}
+      />
     </View>
   );
 }
