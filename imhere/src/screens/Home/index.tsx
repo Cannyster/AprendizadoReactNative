@@ -25,9 +25,10 @@ export function Home() {
           <Text style={styles.buttonText}> + </Text>
         </TouchableOpacity>
       </View>
-      <Participant />
-      <Participant />
-      <Participant />
+      <Participant name={"Jhonanthan Campos Xavier"} />
+      <Participant name={"Aline Elias Campos"} />
+      <Participant name={"Washsington Sergio Campos"} />
+      <Participant name={"Roberto Da Silva Sauro"} />
     </View>
   );
 }
