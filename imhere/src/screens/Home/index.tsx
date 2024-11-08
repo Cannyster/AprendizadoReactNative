@@ -5,6 +5,7 @@ import {
   View,
   ScrollView,
   FlatList,
+  Alert,
 } from "react-native";
 import { styles } from "./styles";
 import { Participant } from "../../components/Participant";
@@ -27,10 +28,26 @@ export function Home() {
   const participants2: ArrayLike<any> | null | undefined = [];
 
   function handleParticipantAdd() {
+    if (participants.includes("Jhonanthan")) {
+      return Alert.alert(
+        "Participante Já Existente",
+        "Já existe um participante cadastrado com esse nome"
+      );
+    }
     console.log("Você clicou no botão adicionar");
   }
 
   function handleParticipantRemove(name: string) {
+    Alert.alert("Remover", `Remover o particpante ${name} ?`, [
+      {
+        text: "Sim",
+        onPress: () => Alert.alert("Deletado!"),
+      },
+      {
+        text: "Não",
+        style: "cancel",
+      },
+    ]);
     console.log(`Você Removeu ${name}`);
   }
 
