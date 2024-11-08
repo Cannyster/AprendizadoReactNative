@@ -9,32 +9,19 @@ import {
 } from "react-native";
 import { styles } from "./styles";
 import { Participant } from "../../components/Participant";
+import { useState } from "react";
 
 export function Home() {
-  const participants = [
-    "Jhonanthan",
-    "Aline",
-    "Ronaldo",
-    "Leitão",
-    "Marcos",
-    "Leticia",
-    "João",
-    "Maria",
-    "Ricardo",
-    "Fernado",
-    "Marilia",
-  ];
-
-  const participants2: ArrayLike<any> | null | undefined = [];
+  const [participants, setParticipants] = useState(["Jhonanthan", "Aline"]);
 
   function handleParticipantAdd() {
-    if (participants.includes("Jhonanthan")) {
+    if (participants.includes("Ana")) {
       return Alert.alert(
         "Participante Já Existente",
         "Já existe um participante cadastrado com esse nome"
       );
     }
-    console.log("Você clicou no botão adicionar");
+    setParticipants((prevState) => [...prevState, "Ana"]);
   }
 
   function handleParticipantRemove(name: string) {
