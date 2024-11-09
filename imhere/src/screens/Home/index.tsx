@@ -12,16 +12,18 @@ import { Participant } from "../../components/Participant";
 import { useState } from "react";
 
 export function Home() {
-  const [participants, setParticipants] = useState(["Jhonanthan", "Aline"]);
+  const [participants, setParticipants] = useState<string[]>([]);
+  const [participantName, setParticipantName] = useState("");
 
   function handleParticipantAdd() {
-    if (participants.includes("Ana")) {
+    if (participants.includes(participantName)) {
       return Alert.alert(
         "Participante Já Existente",
         "Já existe um participante cadastrado com esse nome"
       );
     }
-    setParticipants((prevState) => [...prevState, "Ana"]);
+    setParticipants((prevState) => [...prevState, participantName]);
+    setParticipantName("");
   }
 
   function handleParticipantRemove(name: string) {
@@ -38,6 +40,10 @@ export function Home() {
     console.log(`Você Removeu ${name}`);
   }
 
+  function clearInput() {
+    return "";
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>Nome do Evento</Text>
@@ -49,6 +55,8 @@ export function Home() {
           style={styles.input}
           placeholder="Nome do Participante"
           placeholderTextColor="#6b6b6b"
+          onChangeText={(text) => setParticipantName(text)}
+          value={participantName} //vinculando o valor ao estado quando ele for limpo vai zera o input
           // keyboardType="numeric" // altera o tipo de teclado, apenas números, apenas texto e outros tipos
         />
 
