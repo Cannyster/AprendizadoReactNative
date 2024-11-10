@@ -44,8 +44,9 @@ export function Home() {
     console.log(`Você Removeu ${name}`);
   }
 
-  function clearInput() {
-    return "";
+  function handleState(value: string) {
+    setParticipantName(value);
+    return console.log(participantName);
   }
 
   return (
@@ -59,6 +60,7 @@ export function Home() {
           style={styles.input}
           placeholder="Nome do Participante"
           placeholderTextColor="#6b6b6b"
+          // onChangeText={handleState}
           onChangeText={(text) => setParticipantName(text)}
           value={participantName} //vinculando o valor ao estado quando ele for limpo vai zera o input
           // keyboardType="numeric" // altera o tipo de teclado, apenas números, apenas texto e outros tipos
