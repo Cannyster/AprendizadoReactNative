@@ -7,7 +7,7 @@ export const Container = styled.View`
   justify-content: center;
 `;
 
-export const TextArea = styled.Text`
+export const Title = styled.Text`
   color: #fff;
-  font-size: 32;
+  font-size: 32px;
 `;

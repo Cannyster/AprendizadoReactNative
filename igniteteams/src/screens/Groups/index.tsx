@@ -1,10 +1,9 @@
-import { StyleSheet, Text, View } from "react-native";
-import { Container, TextArea } from "./styles";
+import { Container, Title } from "./styles";
 
 export function Groups() {
   return (
     <Container>
-      <TextArea>Groups</TextArea>
+      <Title>Groups</Title>
     </Container>
   );
 }
