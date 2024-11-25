@@ -6,15 +6,15 @@ import {
   Roboto_400Regular,
   Roboto_700Bold,
 } from "@expo-google-fonts/roboto";
-import { ActivityIndicator } from "react-native";
+import { Loading } from "@components/Loading";
 
 export default function App() {
   //flag para informar se o carregamento das fontes foi concluído ou não
-  const [fonstsLoader] = useFonts({ Roboto_400Regular, Roboto_700Bold });
+  const [fontsLoader] = useFonts({ Roboto_400Regular, Roboto_700Bold });
 
   return (
     <ThemeProvider theme={theme}>
-      {fonstsLoader ? <Groups /> : <ActivityIndicator />}
+      {!fontsLoader ? <Groups /> : <Loading />}
     </ThemeProvider>
   );
 }
