@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@emotion/unitless": "^0.10.0",
+    "@expo-google-fonts/roboto": "^0.2.3",
     "expo": "~52.0.9",
+    "expo-font": "^13.0.1",
     "expo-status-bar": "~2.0.0",
     "metro-react-native-babel-preset": "^0.77.0",
     "react": "18.3.1",
