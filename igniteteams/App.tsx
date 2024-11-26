@@ -7,6 +7,7 @@ import {
   Roboto_700Bold,
 } from "@expo-google-fonts/roboto";
 import { Loading } from "@components/Loading";
+import { StatusBar } from "react-native";
 
 export default function App() {
   //flag para informar se o carregamento das fontes foi concluído ou não
@@ -14,7 +15,8 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      {!fontsLoader ? <Groups /> : <Loading />}
+      <StatusBar barStyle="light-content" translucent />
+      {fontsLoader ? <Groups /> : <Loading />}
     </ThemeProvider>
   );
 }
